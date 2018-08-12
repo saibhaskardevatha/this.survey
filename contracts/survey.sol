@@ -36,7 +36,7 @@ contract survey{
    
     // Print a given user's details 
     
-    function printuser (address _address) public constant returns (string n,uint a, uint g){
+    function printuser (address _address) public view returns (string n,uint a, uint g){
         return(users[_address].name,users[_address].age,users[_address].gender);
     }
     
@@ -64,7 +64,8 @@ contract survey{
         forms[_hash].price=_price;
         localpool = _resp*_price;
         forms[_hash].total=localpool;
-        require (msg.value == localpool*(1 ether) );
+        
+            
         hashlist.push(_hash);
         pool += _resp*_price  ;
         forms[_hash].owner=msg.sender;
@@ -75,33 +76,7 @@ contract survey{
     // store the form filler address against a given form 
     mapping(bytes32 =>address[]) responses;
     mapping(bytes32 => bytes32[]) filled_responses;
-    
-    // to delete filled up form
-    function check() public {
-        bool chk;
-        uint index;
-        uint length = hashlist.length;
-        for(uint i=0;i<length;i++)
-        {
-            if(forms[hashlist[i]].count > forms[hashlist[i]].resp)
-                {
-                   chk=true;
-                   index = i;
-                }
-        }
-        if(!chk) revert();
-        else{
-            if(length==1)
-            delete hashlist[index];
-            else
-            {
-                hashlist[index]=hashlist[hashlist.length-1];
-                delete hashlist[hashlist.length-1];
-            }
-        
-            hashlist.length--;
-        }
-    }
+   
     
     // To transfer value to survey filler from pool 
     function formfilled (bytes32 _hash, bytes32 _fhash) public payable {  
@@ -115,7 +90,7 @@ contract survey{
     }
     //return list of all forms created
     
-    function get_all_forms() public returns (bytes32[] a){
+    function get_all_forms() public view returns (bytes32[] a){
         return(hashlist);
     
     }

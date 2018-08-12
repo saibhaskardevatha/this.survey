@@ -58,7 +58,7 @@
 				var price;
 				var finalContent = '';
 				allForms.forEach(function(listItem, index){
-					contractInstance.get_form_details(web3.fromAscii(listItem), {gas:10000000}, function(error, result){
+					contractInstance.get_form_details(web3.fromAscii(listItem), {gas:1000000}, function(error, result){
 						if(!error){
 							ownerPubK = result[0];
 							owner = result[1];
@@ -78,10 +78,10 @@
 						
 					})
 				})
-				$(".card-columns").innerHTML(finalContent);
+				$(".card-columns").html(finalContent);
 			}
 		})
-	}
+	});
 
 </script>
 
