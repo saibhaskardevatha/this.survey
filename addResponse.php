@@ -25,7 +25,7 @@
         if(!error){
             ipfshash = result[0].hash;
             ipfshash = ipfshash.slice(2,-1);
-            contractInstance.formfilled(formHash, ipfshash,{gas: 1000000}, function(error, result){
+            contractInstance.formfilled(web3.fromAscii(formHash), web3.fromAscii(ipfshash),{gas: 1000000}, function(error, result){
                 if(!error){
                     location.href = "/fill.php";
                 }else{

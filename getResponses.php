@@ -54,7 +54,7 @@
 	var responses;
 	var finalContent = '';
 
-	contractInstance.response_of_user_form(key.slice(2,-1), {gas: 1000000}, function(error, result){
+	contractInstance.response_of_user_form(web3.fromAscii(key.slice(2,-1)), {gas: 1000000}, function(error, result){
 		if(!error){
 			responses = result;
 			responses.forEach(function(listItem, index){

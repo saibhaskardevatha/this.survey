@@ -138,7 +138,7 @@
 				var bucks = num_response*ether_pr;
 				console.log(bucks);
 
-				contractInstance.formdetails(ipfshash, num_response, ether_pr, {gas: 1000000, value: web3.toWei(bucks, 'ether')}, function(error, result){
+				contractInstance.formdetails(web3.fromAscii(ipfshash), num_response, ether_pr, {gas: 1000000, value: web3.toWei(bucks, 'ether')}, function(error, result){
 					if(!error){
 						location.href = "/index.php";
 					}else{
@@ -147,13 +147,6 @@
 				})
 			}
 		})
-		
-		// contractInstance.formdetails()
-		// var xmlhttp = new XMLHttpRequest();
-		// var name = "xyz";//Change It! 
-		// xmlhttp.open("POST","store.php");
-		// xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		// xmlhttp.send("html="+htmlString+"&&name="+name);
 
 	}});
 	</script>

@@ -9,7 +9,7 @@ contract survey{
         string name;
         uint age;
         uint gender;
-        bytes32 [] created;
+        bytes32[] created;
         mapping(bytes32 => uint) filled;
     }
     

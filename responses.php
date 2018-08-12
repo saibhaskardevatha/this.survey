@@ -55,7 +55,7 @@ $(document).ready(function() {
 				var count;
 				var finalContent = '';
 				allForms.forEach(function(listItem, index){
-					contractInstance.livecount(listItem, {gas:10000000}, function(error, result){
+					contractInstance.livecount(web3.fromAscii(listItem), {gas:10000000}, function(error, result){
 						if(!error){
 							count = result[0];
 							
