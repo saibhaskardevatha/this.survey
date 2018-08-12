@@ -1,0 +1,18 @@
+{
+  "name": "ethindia-dev",
+  "version": "1.0.0",
+  "description": "Peer to Peer Survey Publisher",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sai Bhaskar",
+  "license": "ISC",
+  "dependencies": {
+    "buffer": "^5.2.0",
+    "formBuilder": "^2.9.8",
+    "ipfs-api": "^23.0.0",
+    "solc": "^0.4.24",
+    "web3": "^0.20.7"
+  }
+}
